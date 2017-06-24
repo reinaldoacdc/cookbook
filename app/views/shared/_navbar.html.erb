@@ -18,6 +18,19 @@
     <li class="active"> <%= link_to( 'Minhas Receitas', root_path ) %>  </li>
 		<li class="active"> <%= link_to( 'Cadastrar Receita', new_recipe_path) %> </li>
     <li class="active"> <%= link_to( 'Sair', root_path ) %>  </li>
+
+    <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cozinhas <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+
+         <% Cuisine.all.each do |cuisine| %>
+           <li><%= link_to cuisine.name, cuisine_url(cuisine) %></li>
+         <% end %>
+
+       </ul>
+     </li>
+
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
