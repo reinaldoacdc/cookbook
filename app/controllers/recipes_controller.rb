@@ -12,14 +12,22 @@ class RecipesController < ApplicationController
 
 	def create
 		@recipe = Recipe.new(recipe_params)
-		@recipe.save
-		redirect_to recipe_url(@recipe)
+
+		if params[:recipe][:title].empty?      || params[:recipe][:recipe_type].empty? ||
+			 params[:recipe][:cook_time].empty?  || params[:recipe][:cuisine_id].empty?  ||
+			 params[:recipe][:difficulty].empty? || params[:recipe][:ingredients].empty? ||
+			 params[:recipe][:method].empty? then
+
+			 redirect_to new_recipe_path, notice: 'Você deve informar todos os dados da receita'
+		else
+			@recipe.save
+			redirect_to recipe_url(@recipe)
+		end
 	end
 
 
 	def bycuisine
 		@recipes = Recipe.where(cuisine_id: params[:id])
-		#@recipe = Recipe.all.first
 	end
 
 	def recipe_params

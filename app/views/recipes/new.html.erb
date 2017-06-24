@@ -1,5 +1,10 @@
 <h1>Novo</h1>
 
+<% if flash[:notice] %>
+	 <div class="notice"><%= flash[:notice] %></div>
+ <% end %>
+
+
 <%= form_for @recipe do |f| %>
 
 <div>
@@ -28,12 +33,9 @@
 </div>
 <div>
 	<%= f.label :method, 'Como Preparar'%>
-	<%= f.text_field :method %> 
+	<%= f.text_field :method %>
 </div>
 <%= f.submit 'Enviar'%>
 
 
 <% end %>
-
-
-
