@@ -7,13 +7,14 @@ class RecipesController < ApplicationController
 	def new
 		@recipe = Recipe.new
 		@cuisines = Cuisine.all
+		@recipe_type = RecipeType.all
 	end
 
 
 	def create
 		@recipe = Recipe.new(recipe_params)
 
-		if params[:recipe][:title].empty?      || params[:recipe][:recipe_type].empty? ||
+		if params[:recipe][:title].empty?      || params[:recipe][:recipe_type_id].empty? ||
 			 params[:recipe][:cook_time].empty?  || params[:recipe][:cuisine_id].empty?  ||
 			 params[:recipe][:difficulty].empty? || params[:recipe][:ingredients].empty? ||
 			 params[:recipe][:method].empty? then
@@ -31,6 +32,6 @@ class RecipesController < ApplicationController
 	end
 
 	def recipe_params
-		params.require(:recipe).permit(:title, :recipe_type, :cook_time, :cuisine_id, :ingredients, :method, :difficulty)
+		params.require(:recipe).permit(:title, :recipe_type_id, :cook_time, :cuisine_id, :ingredients, :method, :difficulty)
 	end
 end
