@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 	get 'recipesbycuisine/:id', to: 'recipes#bycuisine'
 	resources :recipes
 	resources :cuisines
-	resources :recipe_type
+	resources :recipe_types
 end
