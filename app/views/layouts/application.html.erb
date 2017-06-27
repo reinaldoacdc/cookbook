@@ -9,8 +9,21 @@
   </head>
 
   <body>
+
+    <% if flash[:sucess] %>
+      <div class="alert alert-success"><strong>OK</strong><%= flash[:sucess] %></div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="alert alert-warning"><strong>Aviso!</strong><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="alert alert-danger"><strong>Erro!</strong><%= flash[:error] %></div>
+    <% end %>
+
+
+
     <%= render "shared/navbar" %>
     <%= yield %>
-    <%= render "shared/footer" %>    
+    <%= render "shared/footer" %>
   </body>
 </html>

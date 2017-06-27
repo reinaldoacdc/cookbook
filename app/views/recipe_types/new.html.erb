@@ -1,12 +1,5 @@
 <h1>Novo</h1>
 
-<% if flash[:notice] %>
-<div class="alert alert-danger">
-  <strong>Aviso!</strong><%= flash[:notice] %>
-</div>
-<% end %>
-
-
 <%= form_for @recipe_type do |f| %>
 
 <div>
