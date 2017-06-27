@@ -18,30 +18,21 @@ class RecipesController < ApplicationController
 
 	def update
 		@recipe = Recipe.find( params[:id] )
-		if params[:recipe][:title].empty?      || params[:recipe][:recipe_type_id].empty? ||
-			 params[:recipe][:cook_time].empty?  || params[:recipe][:cuisine_id].empty?  ||
-			 params[:recipe][:difficulty].empty? || params[:recipe][:ingredients].empty? ||
-			 params[:recipe][:method].empty? then
-
-			 redirect_to edit_recipe_url(@recipe), notice: 'Você deve informar todos os dados da receita'
-		else
-			@recipe.update( recipe_params )
+		if @recipe.update( recipe_params ) then			
 			redirect_to recipe_url(@recipe)
+		else
+			redirect_to edit_recipe_url(@recipe), notice: 'Você deve informar todos os dados da receita'
 		end
 	end
 
 	def create
 		@recipe = Recipe.new(recipe_params)
 
-		if params[:recipe][:title].empty?      || params[:recipe][:recipe_type_id].empty? ||
-			 params[:recipe][:cook_time].empty?  || params[:recipe][:cuisine_id].empty?  ||
-			 params[:recipe][:difficulty].empty? || params[:recipe][:ingredients].empty? ||
-			 params[:recipe][:method].empty? then
-
-			 redirect_to new_recipe_path, notice: 'Você deve informar todos os dados da receita'
-		else
+		if @recipe.valid?
 			@recipe.save
 			redirect_to recipe_url(@recipe)
+		else
+			redirect_to new_recipe_path, notice: 'Você deve informar todos os dados da receita'
 		end
 	end
 
