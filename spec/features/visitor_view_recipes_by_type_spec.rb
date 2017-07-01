@@ -54,9 +54,8 @@ feature 'Visitor view recipes by type' do
     expect(page).to have_css('li', text: main_recipe.difficulty)
     expect(page).to have_css('li', text: "#{main_recipe.cook_time} minutos")
     expect(page).not_to have_css('h1', text: dessert_recipe.title)
-    #Esse teste quebra meu layout porque carrego os tipos no navbar
-    #expect(page).not_to have_css('li', text: dessert_recipe.recipe_type.name)
-    #expect(page).not_to have_css('li', text: dessert_recipe.cuisine.name)
+    expect(page).not_to have_css('li', text: dessert_recipe.recipe_type.name)
+    expect(page).not_to have_css('li', text: dessert_recipe.cuisine.name)
     expect(page).not_to have_css('li', text: dessert_recipe.difficulty)
     expect(page).not_to have_css('li', text: "#{dessert_recipe.cook_time} minutos")
   end

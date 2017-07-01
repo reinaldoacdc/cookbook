@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	#get 'recipesbyname/:title', to: 'recipes#search', as: 'search_recipes'
 	resources :recipes, only: [:index, :show, :new, :create, :edit, :patch, :update] do
 		get 'search', on: :collection
+		get 'all',    on: :collection
 	end
 	resources :cuisines
 	resources :recipe_types

@@ -45,5 +45,8 @@ class RecipesController < ApplicationController
 		@title = params[:title]
 	end
 
+	def all
+		@recipes = Recipe.all
+	end
 
 end
