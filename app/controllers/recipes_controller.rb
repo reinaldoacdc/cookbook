@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
 
 	def update
 		@recipe = Recipe.find( params[:id] )
-		if @recipe.update( recipe_params ) then			
+		if @recipe.update( recipe_params ) then
 			redirect_to recipe_url(@recipe)
 		else
 			redirect_to edit_recipe_url(@recipe), notice: 'Você deve informar todos os dados da receita'
@@ -36,12 +36,14 @@ class RecipesController < ApplicationController
 		end
 	end
 
-
-	def bycuisine
-		@recipes = Recipe.where(cuisine_id: params[:id])
-	end
-
 	def recipe_params
 		params.require(:recipe).permit(:title, :recipe_type_id, :cook_time, :cuisine_id, :ingredients, :method, :difficulty)
 	end
+
+	def search
+		@recipes = Recipe.where('title LIKE ? ', params[:title])
+		@title = params[:title]
+	end
+
+
 end

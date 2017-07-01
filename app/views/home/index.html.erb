@@ -3,15 +3,15 @@
 'Bem-vindo ao maior livro de receitas online
 </p>
 
-<% @recipes.each do |recipe| %>
 
-<h1><%= link_to recipe.title, recipe  %></h1>
-<ul>
-<li><%= recipe.recipe_type.name %></li>
-<li><%= recipe.cuisine.name %></li>
-<li><%= recipe.difficulty %></li>
-<li><%= recipe.cook_time %> minutos</li>
-</ul>
+<%= form_tag( search_recipes_path , method: 'get') do %>
+  <%= label_tag(:title, "Busca") %>
+  <%= text_field_tag(:title) %>
+  <%= submit_tag("Buscar") %>
+<% end %>
+
+<% @recipes.each do |recipe| %>
+<%= render recipe %>
 
 
 <% end %>
