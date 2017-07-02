@@ -3,27 +3,17 @@
   <head>
     <title>Cookbook</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-    <% if flash[:sucess] %>
-      <div class="alert alert-success"><strong>OK</strong><%= flash[:sucess] %></div>
-    <% end %>
-    <% if flash[:notice] %>
-      <div class="alert alert-warning"><strong>Aviso!</strong><%= flash[:notice] %></div>
-    <% end %>
-    <% if flash[:error] %>
-      <div class="alert alert-danger"><strong>Erro!</strong><%= flash[:error] %></div>
-    <% end %>
-
-
-
-    <%= render "shared/navbar" %>
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <div class="container">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flash" %>
+      <%= yield %>
+      <%= render "shared/footer" %>
+  </div>
   </body>
 </html>
