@@ -1,19 +1,16 @@
 require 'rails_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 feature 'User register recipe_jype' do
-  let(:user){FactoryGirl.create(:user)}
-
-  def fill_in_signin_fields
-    fill_in "user[email]",with: user.email
-    fill_in "user[password]",with: user.password
-    click_button "Log in"
-  end
+  #let(:user){FactoryGirl.create(:user)}
 
 
   scenario 'successfully' do
+    login_as create( :user ), scope: :user
     visit root_path
-    click_link "Login"
-    fill_in_signin_fields
+    #click_link "Login"
+    #fill_in_signin_fields
     visit new_recipe_type_path
     fill_in 'Nome', with: 'Sobremesa'
     click_on 'Enviar'
@@ -23,6 +20,7 @@ feature 'User register recipe_jype' do
   end
 
   scenario 'and must fill in name' do
+    login_as create( :user ), scope: :user
     visit new_recipe_type_path
     fill_in 'Nome', with: ''
     click_on 'Enviar'
