@@ -10,7 +10,7 @@ class RecipeTypesController < ApplicationController
   end
 
   def create
-    #if current_user.admin? &&
+    #if @user.admin?
       @recipe_type = RecipeType.new
       if params[:recipe_type][:name].empty?
         redirect_to new_recipe_type_path, notice: 'Você deve informar o nome do tipo de receita'
