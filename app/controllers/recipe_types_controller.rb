@@ -5,21 +5,23 @@ class RecipeTypesController < ApplicationController
     @recipe_type = RecipeType.find( params[:id] )
   end
 
-
   def new
     @recipe_type = RecipeType.new
   end
 
   def create
-    @recipe_type = RecipeType.new
-
-		if params[:recipe_type][:name].empty?
-			redirect_to new_recipe_type_path, notice: 'Você deve informar o nome do tipo de receita'
-		else
-			@recipe_type.name = params[:recipe_type][:name]
-			@recipe_type.save
-			redirect_to recipe_type_url(@recipe_type)
-		end
+    #if current_user.admin? &&
+      @recipe_type = RecipeType.new
+      if params[:recipe_type][:name].empty?
+        redirect_to new_recipe_type_path, notice: 'Você deve informar o nome do tipo de receita'
+  		else
+  			@recipe_type.name = params[:recipe_type][:name]
+  			@recipe_type.save
+  			redirect_to recipe_type_url(@recipe_type)
+  		end
+    #else
+    #  redirect_to new_recipe_type_path, notice: 'Você deve ser ADMIN'
+    #end
   end
 
 end
