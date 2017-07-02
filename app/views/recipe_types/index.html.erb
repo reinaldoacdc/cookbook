@@ -1,0 +1,12 @@
+<% if @recipe_types.empty? %>
+    <p>Nenhum tipo de receita encontrada</p>
+  <% else %>
+    <% @recipe_types.each do |recipe_type| %>
+      <h1><%= recipe_type.name %></h1>
+      <ul>
+        <li> <%= link_to 'Editar', edit_recipe_type_path(recipe_type) %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+
+<%= link_to 'Voltar', root_path %>

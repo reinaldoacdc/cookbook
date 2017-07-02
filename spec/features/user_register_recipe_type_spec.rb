@@ -2,15 +2,11 @@ require 'rails_helper'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-feature 'User register recipe_jype' do
-  #let(:user){FactoryGirl.create(:user)}
-
+feature 'User register recipe_type' do
 
   scenario 'successfully' do
     login_as create( :user ), scope: :user
     visit root_path
-    #click_link "Login"
-    #fill_in_signin_fields
     visit new_recipe_type_path
     fill_in 'Nome', with: 'Sobremesa'
     click_on 'Enviar'
@@ -27,4 +23,10 @@ feature 'User register recipe_jype' do
 
     expect(page).to have_content('Você deve informar o nome do tipo de receita')
   end
+
+  scenario 'and must be admin' do
+
+  end
+
+
 end

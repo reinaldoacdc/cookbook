@@ -25,4 +25,19 @@ class RecipeTypesController < ApplicationController
     end
   end
 
+  def index
+    @recipe_types = RecipeType.all
+  end
+
+  def edit
+    @recipe_type = RecipeType.find( params[:id] )
+  end
+
+
+  def update
+    @recipe_type = RecipeType.find( params[:id] )
+    @recipe_type.update(params.require(:recipe_type).permit(:name) )
+    redirect_to recipe_types_path
+  end
+
 end

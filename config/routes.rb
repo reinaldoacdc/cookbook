@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 		get 'search', on: :collection
 		get 'all',    on: :collection
 	end
-	resources :cuisines
-	resources :recipe_types
+	resources :cuisines, only: [:index, :show, :new, :create, :edit, :patch, :update]
+	resources :recipe_types, only: [:index, :show, :new, :create, :edit, :patch, :update] 
 end

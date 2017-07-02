@@ -2,14 +2,11 @@ require 'rails_helper'
 
 feature 'Visitor register recipe' do
   scenario 'successfully' do
-
     #cria os dados necessários
     Cuisine.create(name: 'Arabe')
     RecipeType.create(name: 'Entrada')
     RecipeType.create(name: 'Prato Principal')
     RecipeType.create(name: 'Sobremesa')
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
-
     # simula a ação do usuário
     visit root_path
     click_on 'Enviar uma receita'
@@ -17,8 +14,6 @@ feature 'Visitor register recipe' do
     fill_in 'Título', with: 'Tabule'
     select 'Arabe', from: 'Cozinha'
     select 'Entrada', from: 'Tipo da Receita'
-    fill_in 'Tipo da Receita', with: 'Entrada'
-    fill_in 'Cozinha', with: 'Arabe'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
