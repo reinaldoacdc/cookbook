@@ -2,28 +2,23 @@ require 'rails_helper'
 
 feature 'Visitor register recipe' do
   scenario 'successfully' do
-<<<<<<< HEAD
+
     #cria os dados necessários
     Cuisine.create(name: 'Arabe')
     RecipeType.create(name: 'Entrada')
     RecipeType.create(name: 'Prato Principal')
     RecipeType.create(name: 'Sobremesa')
-=======
     #cria os dados necessários, nesse caso não vamos criar dados no banco
 
->>>>>>> 354212c9c735e08dd610fb1b13e6ac8df3d97bff
     # simula a ação do usuário
     visit root_path
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: 'Tabule'
-<<<<<<< HEAD
     select 'Arabe', from: 'Cozinha'
     select 'Entrada', from: 'Tipo da Receita'
-=======
     fill_in 'Tipo da Receita', with: 'Entrada'
     fill_in 'Cozinha', with: 'Arabe'
->>>>>>> 354212c9c735e08dd610fb1b13e6ac8df3d97bff
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
@@ -42,7 +37,6 @@ feature 'Visitor register recipe' do
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text:  'Misturar tudo e servir. Adicione limão a gosto.')
   end
-<<<<<<< HEAD
 
   scenario 'and must fill in all fields' do
     #cria os dados necessários, nesse caso não vamos criar dados no banco
@@ -61,6 +55,4 @@ feature 'Visitor register recipe' do
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
   end
-=======
->>>>>>> 354212c9c735e08dd610fb1b13e6ac8df3d97bff
 end
