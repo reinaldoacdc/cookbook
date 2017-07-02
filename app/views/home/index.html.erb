@@ -4,8 +4,22 @@
 </p>
 
 <% @recipes.each do |recipe| %>
+<<<<<<< HEAD
   <%= render recipe %>
 <% end %>
 
 <%= link_to 'Ver todas receitas', all_recipes_path %>
 <%= link_to 'Enviar uma receita', new_recipe_path %>
+=======
+
+<h1><%= link_to recipe.title, recipe  %></h1>
+<ul>
+<li><%= recipe.recipe_type %></li>
+<li><%= recipe.cuisine %></li>
+<li><%= recipe.difficulty %></li>
+<li><%= recipe.cook_time %> minutos</li>
+</ul>
+
+<% end %>
+<%= link_to( 'Enviar uma receita', new_recipe_path ) %>
+>>>>>>> 354212c9c735e08dd610fb1b13e6ac8df3d97bff
