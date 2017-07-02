@@ -22,4 +22,18 @@ class CuisinesController < ApplicationController
 		end
 	end
 
+	def index
+		@cuisines = Cuisine.all
+	end
+
+	def edit
+		@cuisine = Cuisine.find( params[:id] )
+	end
+
+	def update
+		@cuisine = Cuisine.find( params[:id] )
+		@cuisine.update( params.require(:cuisine).permit(:name) )
+		redirect_to cuisines_path
+	end
+
 end
