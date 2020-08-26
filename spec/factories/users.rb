@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     email {FFaker::Internet.email }
     password {Devise.friendly_token.first(8)}
-    admin true
+    admin { true }
   end
 end
