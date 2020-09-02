@@ -1,66 +1,53 @@
-<nav class="navbar navbar-default">
- <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">CookBook</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="/">CookBook</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-    <% if user_signed_in? %>
-      <li class="active"> <%= link_to( 'Minhas Receitas', root_path ) %>  </li>
-		  <li class="active"> <%= link_to( 'Cadastrar Receita', new_recipe_path) %> </li>
-      <li class="active"> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
-      <li class="active"> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
-      <% if current_user.admin? %>
-        <li class="active"> <%= link_to "RecipeTypes", recipe_types_path %> </li>
-        <li class="active"> <%= link_to "Cuisines", cuisines_path %> </li>
-      <% end %>
-    <% else %>
-      <li class="active"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
-      <li class="active"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> </li>
-    <% end %>
-    <li class="dropdown">
-       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cozinhas <span class="caret"></span></a>
-       <ul class="dropdown-menu">
-         <% Cuisine.all.each do |cuisine| %>
-           <li><%= link_to cuisine.name, cuisine_url(cuisine) %></li>
-         <% end %>
-       </ul>
-    </li>
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active"> <%= link_to( 'Minhas Receitas', root_path, :class => 'nav-link' ) %>  </li>
+            <li class="nav-item active"> <%= link_to( 'Cadastrar Receita', new_recipe_path, :class => 'nav-link') %> </li>
+            <li class="nav-item active"> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %> </li>
+            <li class="nav-item active"> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %> </li>
+            <% if current_user.admin? %>
+              <li class="nav-item active"> <%= link_to "RecipeTypes", recipe_types_path %> </li>
+              <li class="nav-item active"> <%= link_to "Cuisines", cuisines_path %> </li>
+            <% end %>
+          <% else %>
+            <li class="nav-item active"><%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %></li>
+            <li class="nav-item active"><%= link_to "Login", new_user_session_path, :class => 'nav-link'  %></li>
+          <% end %>
 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cozinhas</a>
+            <ul class="dropdown-menu">
+              <% Cuisine.all.each do |cuisine| %>
+                <li><%= link_to cuisine.name, cuisine_url(cuisine) %></li>
+              <% end %>
+            </ul>
+          </li>
 
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tipos<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <% RecipeType.all.each do |recipe_type| %>
-        <li><%= link_to recipe_type.name, recipe_type_url(recipe_type) %></li>
-        <% end %>
-      </ul>
-    </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipos</a>
+            <ul class="dropdown-menu">
+              <% RecipeType.all.each do |recipe_type| %>
+                <li><%= link_to recipe_type.name, recipe_type_url(recipe_type) %></li>
+              <% end %>
+            </ul>
+          </li>          
+        </ul>
+        
+        <form class="form-inline my-2 my-md-0">
+          <%= form_tag( search_recipes_path , method: 'get') do %>
+          <div class="form-group">
 
-    <li class="active">
-      <form class="navbar-form navbar-left" role="search">
-      <%= form_tag( search_recipes_path , method: 'get') do %>
-      <div class="form-group">
+            <%= text_field_tag(:title, nil, placeholder: 'Busca') %>
+          </div>
 
-        <%= text_field_tag(:title, nil, placeholder: 'Busca') %>
+            <%= submit_tag("Buscar") %>
+          <% end %>
+        </form>
       </div>
-
-        <%= submit_tag("Buscar") %>
-      <% end %>
-    </form>
-    </li>
-
-
-    </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </nav>
