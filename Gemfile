@@ -6,17 +6,19 @@ git_source(:github) do |repo_name|
 end
 
 
+ruby '2.5.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0'
+gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'puma', '~> 3.12'
-gem 'sass-rails', '~> 5.0'
+# Use SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'bootstrap'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bootstrap-sass', ">= 3.4.1"
-gem 'jquery-rails'
-gem 'font-awesome-rails'
 gem 'devise', '~> 4.7.1'
 
 group :production do
