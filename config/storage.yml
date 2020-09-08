@@ -9,3 +9,7 @@ test:
 amazon:
   service: Disk
   root: <%= Rails.root.join("storage") %>
+
+dropbox:
+  service: Dropbox
+  access_token: <%= ENV['DROPBOX_ACCESS_TOKEN'] %>  
