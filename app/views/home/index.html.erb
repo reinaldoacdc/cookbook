@@ -1,9 +1,11 @@
 <h1>CookBook</h1>
 <p>'Bem-vindo ao maior livro de receitas online'</p>
 
-<% @recipes.each do |recipe| %>
-  <%= render recipe %>
-<% end %>
+<div class="card-deck">
+  <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+  <% end %>
+</div>
 
 <%= link_to 'Ver todas receitas', all_recipes_path %>
 <%= link_to( 'Enviar uma receita', new_recipe_path ) %>

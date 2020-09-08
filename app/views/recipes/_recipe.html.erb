@@ -10,9 +10,9 @@
 
 
     <!-- Card image -->
-    <div class="view overlay">
+    <div class>
         <% if recipe.photo.attached? %>
-            <%= image_tag(recipe.photo, class: 'card-img-top rounded-0 img-thumbnail') %>
+            <%= image_tag(recipe.photo, class: 'card-img-top') %>
         <% end %>
     </div>
 

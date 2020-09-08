@@ -2,9 +2,11 @@
     <p>Nenhuma receita cadastrada ainda</p>
   <% else %>
     <h1>Resultado da busca por: <%= @title %> </h1>
-    <% @recipes.each do |recipe| %>
-      <%= render recipe %>
-    <% end %>
+    <div class="card-deck">
+      <% @recipes.each do |recipe| %>
+          <%= render recipe %>      
+      <% end %>
+    </div>
   <% end %>
 
 <%= link_to 'Voltar', root_path %>
