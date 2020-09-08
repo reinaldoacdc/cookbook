@@ -18,11 +18,11 @@ feature 'Visitor register recipe' do
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
     fill_in 'Como Preparar', with: 'Misturar tudo e servir. Adicione limão a gosto.'
-    attach_file("Upload Your File", Rails.root + "spec/fixtures/recipe.jpeg")
+    attach_file("Foto", Rails.root + "spec/fixtures/recipe.jpeg")
     click_on 'Enviar'
 
 
-    expect(page.find('#image')['src']).to have_content 'recipe.jpeg'
+    expect(page.find('img')['src']).to have_content 'recipe.jpeg'
     expect(page).to have_css('h1', text: 'Tabule')
     expect(page).to have_css('h3', text: 'Detalhes')
     expect(page).to have_css('p', text: 'Entrada')
