@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+	has_one_attached :photo
 	belongs_to :cuisine
 	belongs_to :recipe_type
 
