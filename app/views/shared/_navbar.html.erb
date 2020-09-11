@@ -12,8 +12,8 @@
             <li class="nav-item active"> <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %> </li>
             <li class="nav-item active"> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %> </li>
             <% if current_user.admin? %>
-              <li class="nav-item active"> <%= link_to "RecipeTypes", recipe_types_path %> </li>
-              <li class="nav-item active"> <%= link_to "Cuisines", cuisines_path %> </li>
+              <li class="nav-item active"> <%= link_to "RecipeTypes", recipe_types_path, :class => 'nav-link' %> </li>
+              <li class="nav-item active"> <%= link_to "Cuisines", cuisines_path, :class => 'nav-link' %> </li>
             <% end %>
           <% else %>
             <li class="nav-item active"><%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %></li>

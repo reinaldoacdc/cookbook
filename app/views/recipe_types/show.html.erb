@@ -3,12 +3,9 @@
     <p>Nenhuma receita encontrada para este tipo de receitas</p>
   <% else %>
     <% @recipes.each do |recipe| %>
-      <h1><%= recipe.title  %></h1>
-      <h1><%= recipe.cuisine.name %></h1>
-      <li><%= recipe.recipe_type.name %></li>
-      <li><%= recipe.cuisine.name %></li>
-      <li><%= recipe.difficulty%></li>
-      <li><%= recipe.cook_time%> minutos</li>
+      <div class="card-deck">
+        <%= render recipe %>
+      </div>
     <% end %>
   <% end %>
 
