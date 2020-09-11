@@ -1,12 +1,13 @@
 <h1> <%= @recipe_type.name %> </h1>
 <% if @recipes.empty? %>
     <p>Nenhuma receita encontrada para este tipo de receitas</p>
-  <% else %>
-    <% @recipes.each do |recipe| %>
-      <div class="card-deck">
-        <%= render recipe %>
-      </div>
-    <% end %>
+    <% else %>
+    <div class="card-deck">
+      <% @recipes.each do |recipe| %>      
+        <%= render recipe %>      
+      <% end %>
+    </div>
   <% end %>
+
 
 <%= link_to 'Voltar', root_path %>
