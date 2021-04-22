@@ -2,7 +2,8 @@ FROM ruby:2.5.1-slim
 
 # Instala nossas dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-    build-essential libpq-dev libsqlite3-dev  imagemagick curl
+    build-essential libpq-dev libsqlite3-dev  imagemagick curl git
+    
 
 # Instalar o GNUPG
 RUN apt-get install -y gnupg
