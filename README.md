@@ -1,8 +1,10 @@
 # README
 
+Visit me at:
+https://cookbook-acdc.herokuapp.com/
 
 
-Upgraded to
+Developed with:
 
 * Ruby version 2.5.1
 * Rails version 6.0.3
