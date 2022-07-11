@@ -28,6 +28,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.8'
 gem 'activestorage-dropbox'
+gem "google-cloud-storage", "~> 1.11", require: false
 
 group :production do
   gem 'pg'

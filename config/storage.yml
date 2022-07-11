@@ -13,3 +13,9 @@ amazon:
 dropbox:
   service: Dropbox
   access_token: <%= ENV['DROPBOX_ACCESS_TOKEN'] %>  
+
+google:
+  service: GCS
+  credentials: <%= Rails.root.join("google-credentials.json") %>
+  project: "cookbook-acdc"
+  bucket: "cookbook-recipes"  
